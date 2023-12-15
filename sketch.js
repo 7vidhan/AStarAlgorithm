@@ -12,8 +12,8 @@ function heuristic(a,b){
   return d;
 }
 
-var cols = 50;
-var rows = 50;
+var cols = 120;
+var rows = 120;
 var grid = new Array(cols);
 
 var openSet = [];
@@ -35,14 +35,14 @@ function Spot(i,j){
   this.wall = false;
 
   // Wall Density
-  if(random(1) < 0.4) {
+  if(random(1) < 0.5) {
     this.wall = true;
   }
   // Displaying the grid
   this.show = function (col){
-    fill(col);
+    fill(0,50,100);
     if(this.wall){
-      fill(0);
+      fill(255,0,0);
     }
     noStroke();
     ellipse(this.i*w + w/2, this.j*h + h/2, w/2, h/2);
@@ -68,7 +68,7 @@ function Spot(i,j){
 
 
 function setup() {
-  createCanvas(450, 450);
+  createCanvas(1500, 900);
   console.log("A*");
 
   w = width/cols;
@@ -159,7 +159,7 @@ function draw() {
     return;
   }
 
-  background(255);
+  background(0,50,100);
 
   // Laying the grid spots
   for(var i=0; i<cols; i++){
@@ -191,7 +191,7 @@ function draw() {
   }
 
   noFill();
-  stroke(255, 0, 200);
+  stroke(100, 155, 255);
   strokeWeight(w/2);
   beginShape();
   for(var i=0; i<path.length; i++){
